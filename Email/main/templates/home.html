@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Contact{% endblock %} | Contact Page</title>
+     <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+   
+    {% block content %}
+    <div class="form-container">
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
